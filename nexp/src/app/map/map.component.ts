@@ -23,46 +23,51 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => {
-      this.message = message;
-      if (this.message) {
-        if (this.message.items_group.length > 0) {
-          // refresh svg
-          let className = 'added';
-          var elements = document.getElementsByClassName(className);
-          while (elements.length > 0) {
-            elements[0].parentNode.removeChild(elements[0]);
-          }
-
-          // loop through list
-          this.message.items_group.forEach((data) => {
-            if (!data.state_value && !data.type)
-              return;
-            this.mapData = data;
-
-            let svg_main = document.getElementById('map');
-            let svg = document.getElementById(
-              this.mapData.state_value + '-group'
-            ); //Get svg element group
-            // get center of state map
-            let [x, y] = this.getBoundingBoxCenter(svg);
-            let newElement;
-            if (this.mapData.type === "SOG") {
-              let imgUrl = 'assets/img/house_pinpoint.png';
-              newElement = this.drawImgElement('image', 'added', imgUrl, '40', '40', x, y);
-
-            } else {
-              newElement = this.drawElement('rect', 'added', '5', '5', x, y);
+      try {
+        this.message = message;
+        if (this.message) {
+          if (this.message.items_group.length > 0) {
+            // refresh svg
+            let className = 'added';
+            var elements = document.getElementsByClassName(className);
+            while (elements.length > 0) {
+              elements[0].parentNode.removeChild(elements[0]);
             }
-            // svg.appendChild(newElement);
-            svg_main.appendChild(newElement);
+
+            // loop through list
+            this.message.items_group.forEach((data) => {
+              if (!data.state_value && !data.type)
+                return;
+              this.mapData = data;
+
+              let svg_main = document.getElementById('map');
+              let svg = document.getElementById(
+                this.mapData.state_value + '-group'
+              ); //Get svg element group
+              // get center of state map
+              let [x, y] = this.getBoundingBoxCenter(svg);
+              let newElement;
+              if (this.mapData.type === "SOG") {
+                let imgUrl = 'assets/img/house_pinpoint.png';
+                newElement = this.drawImgElement('image', 'added', imgUrl, '40', '40', x, y);
+
+              } else {
+                newElement = this.drawElement('rect', 'added', '5', '5', x, y);
+              }
+              // svg.appendChild(newElement);
+              svg_main.appendChild(newElement);
 
 
 
-            svg.style.stroke = '#fff';
-            svg.style.strokeWidth = '3px';
-          });
+              svg.style.stroke = '#fff';
+              svg.style.strokeWidth = '3px';
+            });
+          }
         }
+      } catch (error) {
+        console.log("Error encountered: "+error);
       }
+
     });
   }
 
@@ -80,8 +85,8 @@ export class MapComponent implements OnInit {
     svgimg.setAttributeNS(null, 'height', height);
     svgimg.setAttributeNS(null, 'width', width);
     svgimg.setAttributeNS('http://www.w3.org/1999/xlink', 'href', url);
-    svgimg.setAttributeNS(null, 'x', (x - (parseInt(height)/2 +5)).toString());
-    svgimg.setAttributeNS(null, 'y', (y - parseInt(width)/2).toString());
+    svgimg.setAttributeNS(null, 'x', (x - (parseInt(height) / 2 + 5)).toString());
+    svgimg.setAttributeNS(null, 'y', (y - parseInt(width) / 2).toString());
     svgimg.setAttributeNS(null, 'visibility', 'visible');
 
     return svgimg;
@@ -119,9 +124,9 @@ export class MapComponent implements OnInit {
       // return the center of the bounding box
       return [bbox.x + bbox.width / 2, bbox.y + bbox.height / 2];
     } catch (error) {
-      console.log("Eroor occured when finding center: "+error);
+      console.log("Eroor occured when finding center: " + error);
     }
-    return [0,0];
+    return [0, 0];
   }
 
   public changeColor(color?: string) {
