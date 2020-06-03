@@ -24,15 +24,16 @@ export class MapComponent implements OnInit {
   ngOnInit(): void {
     this.data.currentMessage.subscribe((message) => {
       try {
+        // refresh svg
+        let className = 'added';
+        var elements = document.getElementsByClassName(className);
+        while (elements.length > 0) {
+          elements[0].parentNode.removeChild(elements[0]);
+        }
+        
         this.message = message;
         if (this.message) {
           if (this.message.items_group.length > 0) {
-            // refresh svg
-            let className = 'added';
-            var elements = document.getElementsByClassName(className);
-            while (elements.length > 0) {
-              elements[0].parentNode.removeChild(elements[0]);
-            }
 
             // loop through list
             this.message.items_group.forEach((data) => {
