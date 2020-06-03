@@ -1,0 +1,77 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: auto;
+  flex-flow: column;
+  .header {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    .title {
+      font-size: 16px;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    }
+    span {
+      font-style: italic;
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-basis: auto;
+      flex-flow: row;
+      .clr-button {
+        width: 40px;
+        height: 40px;
+        border: solid 5px #000000;
+        margin: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .btn {
+          width: inherit;
+          height: inherit;
+          background-color: transparent;
+          cursor: pointer;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: auto;
+
+          input[type="color"] {
+            cursor: pointer;
+            -webkit-appearance: none;
+            font-family: var(--code-font-family);
+            font-size: 40px;
+            border: none;
+            outline: none;
+            opacity: 0;
+            width: 40px;
+            height: 40px;
+            display: block;
+            margin: 0;
+            padding: 0;
+          }
+
+          span {
+            position: absolute;
+            font-style: normal;
+            font-size: 20px;
+            &:before {
+              content: "?";
+            }
+          }
+        }
+      }
+    }
+  }
+  .map {
+    display: block;
+    // max-width: 650px;
+    // width: 632px;
+    // transform: perspective(400px) rotateX(35deg) scaleX(1.2) /*skew(-2deg, -3deg)*/;
+  }
+}

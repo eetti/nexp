@@ -1,0 +1,30 @@
+[
+    {
+        "id": "SOG",
+        "name": "State of Origin"
+    },
+    {
+        "id": "PRS",
+        "name": "Primary School"
+    },
+    {
+        "id": "SCS",
+        "name": "Secondary School"
+    },
+    {
+        "id": "UE",
+        "name": "University"
+    },
+    {
+        "id": "NY",
+        "name": "NYSC"
+    },
+    {
+        "id": "WK",
+        "name": "Workplace"
+    },
+    {
+        "id": "VS",
+        "name": "Visited"
+    }
+]

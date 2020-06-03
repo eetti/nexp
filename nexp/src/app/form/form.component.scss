@@ -1,0 +1,128 @@
+.form {
+  margin-top: 20px;
+//   max-width: 500px;
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  .items {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 10px;
+    // transform: translateY(calc(var(--offset) * 1px)) scale(var(--scale)) skewY(var(--skew));
+    --scale: 1.02;
+    --skew: -1deg;
+    --border-radius: -1.64;
+    --offset: 3;
+    // transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.6s ease-in-out;
+    -moz-transition: background 0.5s linear; /* Firefox 4 */
+    -webkit-transition: background 0.5s linear; /* Safari and Chrome */
+    -o-transition: background 0.5s linear; /* Opera */
+    -ms-transition: background 0.5s linear; /* Explorer 10 */
+
+    .form_group {
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 1fr 20px 1fr;
+      transition: all 0.2s ease-in-out;
+
+      &:first-child {
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .form_control {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .removeItem {
+      //   background-color: indianred;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      margin-left: 10px;
+      content : "\"";
+    }
+  }
+
+  .addItem {
+    display: flex;
+    margin: 10px;
+    // padding-right: 5px;
+    .spacer {
+      margin-right: auto;
+    }
+
+    .btn {
+    //   background-color: black;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+  }
+}

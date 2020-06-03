@@ -1,0 +1,137 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <!-- State of Origin -->
+  <!-- <div>
+    <label>State Of Origin:</label>
+
+    <input
+      type="text"
+      *ngIf="!stateListVisibility"
+      formControlName="state"
+      readonly
+      placeholder="State of Origin"
+    />
+    <div (click)="toggleStateList()">
+      <span>edit...</span>
+    </div>
+    <div (click)="toggleStateList()">
+      <span>Cancel...</span>
+    </div>
+    <div *ngIf="stateListVisibility == true">
+      <input
+        type="text"
+        [formControl]="filter"
+        placeholder="Filter states..."
+      />
+      <div>
+        <div
+          *ngFor="let item of filteredStates$ | async; let id = index"
+          (click)="onClickState(id, item)"
+        >
+          {{ item.name }}
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- Education -->
+  <!-- <div>
+    <label>Education:</label>
+    <label>
+      <input type="radio" value="yes" formControlName="education" />
+      <span>Yes</span>
+    </label>
+    <label>
+      <input type="radio" value="no" formControlName="education" />
+      <span>No</span>
+    </label>
+  </div> -->
+  <div>
+    <span>Items</span>
+  </div>
+  <div
+    class="items"
+    formArrayName="items_group"
+    *ngFor="let item of form.get('items_group')['controls']; let i = index"
+  >
+    <div [formGroupName]="i" class="form_group">
+      <!-- <input formControlName="type" placeholder="Item name" /> -->
+      <div class="form-contol">
+        <!-- <label>Experience:</label>
+        <select formControlName="type">
+          <option>{{ defaultSelectMsg }}</option>
+          <option
+            *ngFor="let type of inputTypesAsArray"
+            value="{{ type.id }}"
+            >{{ type.name }}</option
+          >
+        </select> -->
+
+        <mat-form-field>
+          <mat-label>Experience</mat-label>
+          <mat-select formControlName="type" name="type">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let type of inputTypesAsArray" [value]="type.id">
+              {{ type.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <span></span>
+      <!-- <input formControlName="state" placeholder="Item description" /> -->
+      <div class="form_control">
+        <!-- <label>State:</label>
+        <select formControlName="state_value">
+          <option selected="selected">{{ defaultSelectMsg }}</option>
+          <option *ngFor="let type of statesAsArray" value="{{ type.id }}">{{
+            type.name
+          }}</option>
+        </select> -->
+        <mat-form-field>
+          <mat-label>State</mat-label>
+          <mat-select formControlName="type" name="type">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let type of statesAsArray" [value]="type.id">
+              {{ type.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div
+      class="removeItem"
+      *ngIf="form.get('items_group')['controls'].length > 1"
+      (click)="removeItem(i)"
+    >
+      <!-- <span>x</span> -->
+      <!-- <button mat-mini-fab color="warn">x</button> -->
+      <button
+        mat-icon-button
+        color="warn"
+        aria-label="icon-button with a close icon"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <!-- Chosen name: {{ form.controls.items_group["controls"][i].controls.value }} -->
+  </div>
+  <div class="addItem">
+    <div class="spacer"></div>
+    <div class="btn" (click)="addItem()">
+      <!-- <span>+</span> -->
+      <button type="button" mat-mini-fab color="dark">+</button>
+    </div>
+  </div>
+  <!-- <p>{{ form.value | json }}</p> -->
+  <div class="buttons">
+    <button type="reset" mat-raised-button color="warn">Reset</button>
+    <!-- <button [disabled]="!form.valid">Submit</button> -->
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+      [disabled]="!form.valid"
+    >
+      Submit
+    </button>
+  </div>
+</form>

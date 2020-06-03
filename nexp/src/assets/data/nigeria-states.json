@@ -1,0 +1,150 @@
+[
+  {
+    "id": "NG-AB",
+    "name": "Abia"
+  },
+  {
+    "id": "NG-AD",
+    "name": "Adamawa"
+  },
+  {
+    "id": "NG-AK",
+    "name": "Akwa Ibom"
+  },
+  {
+    "id": "NG-AN",
+    "name": "Anambra"
+  },
+  {
+    "id": "NG-BA",
+    "name": "Bauchi"
+  },
+  {
+    "id": "NG-BY",
+    "name": "Bayelsa"
+  },
+  {
+    "id": "NG-BE",
+    "name": "Benue"
+  },
+  {
+    "id": "NG-BO",
+    "name": "Borno"
+  },
+  {
+    "id": "NG-CR",
+    "name": "Cross River"
+  },
+  {
+    "id": "NG-DE",
+    "name": "Delta"
+  },
+  {
+    "id": "NG-EB",
+    "name": "Ebonyi"
+  },
+  {
+    "id": "NG-ED",
+    "name": "Edo"
+  },
+  {
+    "id": "NG-EK",
+    "name": "Ekiti"
+  },
+  {
+    "id": "NG-EN",
+    "name": "Enugu"
+  },
+  {
+    "id": "NG-FC",
+    "name": "FCT - Abuja"
+  },
+  {
+    "id": "NG-GO",
+    "name": "Gombe"
+  },
+  {
+    "id": "NG-IM",
+    "name": "Imo"
+  },
+  {
+    "id": "NG-JI",
+    "name": "Jigawa"
+  },
+  {
+    "id": "NG-KD",
+    "name": "Kaduna"
+  },
+  {
+    "id": "NG-KN",
+    "name": "Kano"
+  },
+  {
+    "id": "NG-KT",
+    "name": "Katsina"
+  },
+  {
+    "id": "NG-KE",
+    "name": "Kebbi"
+  },
+  {
+    "id": "NG-KO",
+    "name": "Kogi"
+  },
+  {
+    "id": "NG-KW",
+    "name": "Kwara"
+  },
+  {
+    "id": "NG-LA",
+    "name": "Lagos"
+  },
+  {
+    "id": "NG-NA",
+    "name": "Nasarawa"
+  },
+  {
+    "id": "NG-NI",
+    "name": "Niger"
+  },
+  {
+    "id": "NG-OG",
+    "name": "Ogun"
+  },
+  {
+    "id": "NG-ON",
+    "name": "Ondo"
+  },
+  {
+    "id": "NG-OS",
+    "name": "Osun"
+  },
+  {
+    "id": "NG-OY",
+    "name": "Oyo"
+  },
+  {
+    "id": "NG-PL",
+    "name": "Plateau"
+  },
+  {
+    "id": "NG-RI",
+    "name": "Rivers"
+  },
+  {
+    "id": "NG-SO",
+    "name": "Sokoto"
+  },
+  {
+    "id": "NG-TA",
+    "name": "Taraba"
+  },
+  {
+    "id": "NG-YO",
+    "name": "Yobe"
+  },
+  {
+    "id": "NG-ZA",
+    "name": "Zamfara"
+  }
+]
