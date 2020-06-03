@@ -87,7 +87,7 @@
         </select> -->
         <mat-form-field>
           <mat-label>State</mat-label>
-          <mat-select formControlName="type" name="type">
+          <mat-select formControlName="state_value" name="state_value">
             <mat-option>None</mat-option>
             <mat-option *ngFor="let type of statesAsArray" [value]="type.id">
               {{ type.name }}
