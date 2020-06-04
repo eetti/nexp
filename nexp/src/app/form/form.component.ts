@@ -71,6 +71,10 @@ export class FormComponent implements OnInit {
     this.ds.sendMessage(this.form.value)
   }
 
+  resetForm(){
+    this.ds.sendMessage(null);
+  }
+
   public onClickState(id, item) {
     console.log(id, item);
     this.form.patchValue({ state: item.name, state_data: item });

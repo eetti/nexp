@@ -45,7 +45,7 @@
     </label>
   </div> -->
   <div>
-    <span>Items</span>
+    <span>Experiences</span>
   </div>
   <div
     class="items"
@@ -123,13 +123,14 @@
   </div>
   <!-- <p>{{ form.value | json }}</p> -->
   <div class="buttons">
-    <button type="reset" mat-raised-button color="warn">Reset</button>
+    <button type="reset" mat-raised-button color="warn" class="custom_btn" (click)="resetForm()">Reset</button>
     <!-- <button [disabled]="!form.valid">Submit</button> -->
     <button
       type="submit"
       mat-raised-button
       color="primary"
       [disabled]="!form.valid"
+      class="custom_btn"
     >
       Submit
     </button>

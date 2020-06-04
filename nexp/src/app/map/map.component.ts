@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { DataService } from '../services/data/data.service';
+import { TooltipPosition } from '@angular/material/tooltip';
 import * as d3 from 'd3';
 
 @Component({
@@ -11,6 +12,8 @@ import * as d3 from 'd3';
 })
 export class MapComponent implements OnInit {
   public fill = 'rgb(0, 0, 0)';
+  public positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
+  public defaultStrokeWidth : string = "0px";
 
   message: any;
   state: { id: string; name: string };
@@ -22,15 +25,29 @@ export class MapComponent implements OnInit {
   constructor(private data: DataService, @Inject(DOCUMENT) document) { }
 
   ngOnInit(): void {
+    let svg_main = document.getElementById('map');
     this.data.currentMessage.subscribe((message) => {
       try {
         // refresh svg
         let className = 'added';
+        let classNameGroup = 'added_group';
+        // remove child icons/map markers
         var elements = document.getElementsByClassName(className);
         while (elements.length > 0) {
           elements[0].parentNode.removeChild(elements[0]);
         }
-        
+
+        // remove stroke
+        var elementGroups = document.getElementsByClassName(classNameGroup);
+        let counter = 0;
+        while (elementGroups.length > counter) {
+          let oldSvgGrp = elementGroups[counter];
+          oldSvgGrp.setAttribute('stroke-width', this.defaultStrokeWidth);
+          oldSvgGrp['style'].strokeWidth = this.defaultStrokeWidth;
+          counter++;
+        }
+
+
         this.message = message;
         if (this.message) {
           if (this.message.items_group.length > 0) {
@@ -41,7 +58,7 @@ export class MapComponent implements OnInit {
                 return;
               this.mapData = data;
 
-              let svg_main = document.getElementById('map');
+              
               let svg = document.getElementById(
                 this.mapData.state_value + '-group'
               ); //Get svg element group
@@ -50,16 +67,16 @@ export class MapComponent implements OnInit {
               let newElement;
               if (this.mapData.type === "SOG") {
                 let imgUrl = 'assets/img/house_pinpoint.png';
-                newElement = this.drawImgElement('image', 'added', imgUrl, '40', '40', x, y);
+                newElement = this.drawImgElement('image', className, imgUrl, '40', '40', x, y);
 
               } else {
-                newElement = this.drawElement('rect', 'added', '5', '5', x, y);
+                newElement = this.drawElement('rect', className, '5', '5', x, y);
               }
               // svg.appendChild(newElement);
               svg_main.appendChild(newElement);
 
 
-
+              svg.setAttribute('class', classNameGroup);
               svg.style.stroke = '#fff';
               svg.style.strokeWidth = '3px';
             });
