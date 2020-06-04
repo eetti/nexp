@@ -49,6 +49,10 @@
     justify-content: center;
   }
 
+  .sub-content .map-container{
+    align-self: flex-start;
+  }
+
   svg.material-icons {
     height: 24px;
     width: auto;
@@ -515,7 +519,9 @@
     <app-form></app-form>
 
     <!-- map -->
-    <app-map></app-map>
+    <div class="map-container">
+      <app-map></app-map>
+    </div>
   </div>
 
   <!-- Footer -->
