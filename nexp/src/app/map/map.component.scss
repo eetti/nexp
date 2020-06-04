@@ -4,7 +4,7 @@
   flex-basis: auto;
   flex-flow: column;
   width: 100%;
-  
+
   .header {
     display: flex;
     flex-flow: column;
@@ -77,5 +77,14 @@
     // max-width: 650px;
     // width: 632px;
     // transform: perspective(400px) rotateX(35deg) scaleX(1.2) /*skew(-2deg, -3deg)*/;
+
+    .states {
+      &:hover {
+        // fill: #ec008c;
+        opacity: 0.8;
+        stroke: white;
+        stroke-width: 1px;
+      }
+    }
   }
 }

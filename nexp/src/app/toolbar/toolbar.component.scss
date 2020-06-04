@@ -11,6 +11,18 @@
   font-weight: 600;
   img {
     margin: 0 16px;
+    width: 56px;
+
+    &:hover {
+      // opacity: 0.8;
+      mask-image: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.7),
+        rgba(92, 166, 9, 1),
+        rgba(0, 0, 0, 0.7)
+      );
+      mask-type: alpha;
+    }
   }
   #twitter-logo {
     height: 40px;
